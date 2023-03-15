@@ -1,6 +1,8 @@
 #!/usr/bin/node
-const Rectangle = require('./4-rectangle');
-class Square extends Rectangle {
+
+const Rectangle = require('./5-square');
+
+module.exports = class Square extends Rectangle {
   constructor (size) {
     super(size, size);
   }
@@ -9,12 +11,8 @@ class Square extends Rectangle {
     if (c === undefined) {
       c = 'X';
     }
-    for (let i = 0; i < this.height; i++) {
-      for (let j = 0; j < this.width; j++) {
-        process.stdout.write(c);
-      }
-      console.log();
+    for (let index = 0; index < this.height; index++) {
+      console.log(c.repeat(this.width));
     }
   }
-}
-module.exports = Square;
+};
